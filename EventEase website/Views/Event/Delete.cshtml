@@ -1,0 +1,188 @@
+﻿@model EventEase_website.Models.EventM
+
+@{
+    ViewData["Title"] = "Delete Event";
+}
+
+<style>
+    /* ── Page wrapper ── */
+    .delete-page {
+        max-width: 960px;
+        margin: 2.5rem auto;
+        padding: 0 1rem;
+        font-family: Arial, sans-serif;
+    }
+
+        .delete-page h1 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #4A3535;
+            margin-bottom: 0.25rem;
+        }
+
+        .delete-page .page-subtitle {
+            font-size: 13px;
+            color: #7A6060;
+            margin-bottom: 1.5rem;
+        }
+
+        .delete-page hr {
+            border: none;
+            border-top: 2px solid #C4A882;
+            margin-bottom: 1.8rem;
+        }
+
+    /* ── Warning banner ── */
+    .delete-warning {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: #FAF0F0;
+        border: 1px solid #E8C4C4;
+        border-radius: 10px;
+        padding: 0.85rem 1.2rem;
+        margin-bottom: 1.5rem;
+        max-width: 580px;
+    }
+
+        .delete-warning .warning-icon {
+            font-size: 18px;
+            color: #8B2020;
+            flex-shrink: 0;
+        }
+
+        .delete-warning p {
+            font-size: 13px;
+            color: #8B2020;
+            font-weight: bold;
+            margin: 0;
+        }
+
+    /* ── Details card ── */
+    .details-card {
+        background: #FFFDF8;
+        border: 1px solid #D4BFA8;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(107, 79, 79, 0.10);
+        padding: 2rem 2.5rem;
+        max-width: 580px;
+        margin-bottom: 1.5rem;
+    }
+
+    /* ── Field rows ── */
+    .detail-row {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #EAE3D2;
+    }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+    .detail-label {
+        flex: 0 0 140px;
+        font-size: 13px;
+        font-weight: bold;
+        color: #4A3535;
+        letter-spacing: 0.2px;
+    }
+
+    .detail-value {
+        flex: 1;
+        font-size: 14px;
+        color: #2C2020;
+    }
+
+    /* ── Actions ── */
+    .delete-actions {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        margin-top: 0.5rem;
+    }
+
+    .btn-delete-confirm {
+        display: inline-block;
+        background: #8B2020;
+        color: #FFFDF8;
+        border: none;
+        border-radius: 8px;
+        padding: 0.6rem 1.6rem;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        cursor: pointer;
+        letter-spacing: 0.3px;
+        transition: background 0.2s, transform 0.1s;
+    }
+
+        .btn-delete-confirm:hover {
+            background: #6B1515;
+        }
+
+        .btn-delete-confirm:active {
+            transform: scale(0.98);
+        }
+
+    .back-link {
+        display: inline-block;
+        font-size: 13px;
+        color: #6B4F4F;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.2s;
+    }
+
+        .back-link:hover {
+            color: #4A3535;
+            text-decoration: underline;
+        }
+</style>
+
+<div class="delete-page">
+
+    <h1>Delete Event</h1>
+    <p class="page-subtitle">Review the event details before confirming deletion.</p>
+    <hr />
+
+    <div class="delete-warning">
+        <span class="warning-icon">⚠</span>
+        <p>This action is permanent and cannot be undone.</p>
+    </div>
+
+    <div class="details-card">
+
+        <div class="detail-row">
+            <span class="detail-label">@Html.DisplayNameFor(model => model.EventName)</span>
+            <span class="detail-value">@Html.DisplayFor(model => model.EventName)</span>
+        </div>
+
+        <div class="detail-row">
+            <span class="detail-label">@Html.DisplayNameFor(model => model.EventDate)</span>
+            <span class="detail-value">@Html.DisplayFor(model => model.EventDate)</span>
+        </div>
+
+        <div class="detail-row">
+            <span class="detail-label">@Html.DisplayNameFor(model => model.Description)</span>
+            <span class="detail-value">@Html.DisplayFor(model => model.Description)</span>
+        </div>
+
+        <div class="detail-row">
+            <span class="detail-label">@Html.DisplayNameFor(model => model.Venue)</span>
+            <span class="detail-value">@Html.DisplayFor(model => model.Venue.Location)</span>
+        </div>
+
+    </div>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="EventID" />
+        <div class="delete-actions">
+            <input type="submit" value="✕ Confirm Delete" class="btn-delete-confirm" />
+            <a asp-action="Index" class="back-link">← Back to Events</a>
+        </div>
+    </form>
+
+</div>

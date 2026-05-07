@@ -1,0 +1,208 @@
+﻿@model EventEase_website.Models.BookingM
+
+@{
+    ViewData["Title"] = "Edit Booking";
+}
+
+<style>
+    /* ── Page wrapper ── */
+    .booking-page {
+        max-width: 520px;
+        margin: 2.5rem auto;
+        padding: 0 1rem;
+        font-family: Arial, sans-serif;
+    }
+
+        .booking-page h1 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #4A3535;
+            margin-bottom: 0.25rem;
+        }
+
+        .booking-page .page-subtitle {
+            font-size: 13px;
+            color: #7A6060;
+            margin-bottom: 1.5rem;
+        }
+
+        .booking-page hr {
+            border: none;
+            border-top: 2px solid #C4A882;
+            margin-bottom: 1.8rem;
+        }
+
+    /* ── Card container ── */
+    .booking-card {
+        background: #FFFDF8;
+        border: 1px solid #D4BFA8;
+        border-radius: 12px;
+        padding: 2rem 2rem 1.5rem;
+        box-shadow: 0 4px 16px rgba(107, 79, 79, 0.10);
+    }
+
+        /* ── Form groups ── */
+        .booking-card .form-group {
+            margin-bottom: 1.4rem;
+        }
+
+        .booking-card .control-label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            color: #4A3535;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* ── Inputs and selects ── */
+        .booking-card .form-control {
+            width: 100%;
+            padding: 0.55rem 0.85rem;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            color: #2C2020;
+            background: #F5F0E8;
+            border: 1px solid #C4A882;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+            .booking-card .form-control:focus {
+                border-color: #6B4F4F;
+                box-shadow: 0 0 0 3px rgba(107, 79, 79, 0.15);
+                background: #FFFDF8;
+            }
+
+    /* ── Select arrow ── */
+    .select-wrapper {
+        position: relative;
+    }
+
+        .select-wrapper::after {
+            content: "▾";
+            position: absolute;
+            right: 0.85rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6B4F4F;
+            font-size: 13px;
+            pointer-events: none;
+        }
+
+    /* ── Validation messages ── */
+    .booking-card .text-danger {
+        font-size: 12px;
+        color: #A32D2D;
+        margin-top: 0.3rem;
+        display: block;
+    }
+
+    /* ── Primary button ── */
+    .btn-primary {
+        background: #6B4F4F;
+        color: #FFFDF8;
+        border: none;
+        border-radius: 8px;
+        padding: 0.6rem 1.8rem;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.1s;
+        letter-spacing: 0.3px;
+    }
+
+        .btn-primary:hover {
+            background: #4A3535;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+
+    /* ── Back link ── */
+    .back-link {
+        display: inline-block;
+        margin-top: 1.2rem;
+        font-size: 13px;
+        color: #6B4F4F;
+        text-decoration: none;
+        font-family: Arial, sans-serif;
+        transition: color 0.2s;
+    }
+
+        .back-link:hover {
+            color: #4A3535;
+            text-decoration: underline;
+        }
+</style>
+
+<div class="booking-page">
+
+    <h1>Edit Booking</h1>
+    <p class="page-subtitle">Update the details below and save your changes.</p>
+    <hr />
+
+    <div class="booking-card">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BookingID" />
+
+            <!-- Event Dropdown -->
+            <div class="form-group">
+                <label asp-for="EventID" class="control-label"></label>
+                <div class="select-wrapper">
+                    <select asp-for="EventID" class="form-control">
+                        <option value="">-- Select Event --</option>
+                        @foreach (var eventItem in ViewBag.Events)
+                        {
+                            <option value="@eventItem.EventID">@eventItem.EventID</option>
+                        }
+                    </select>
+                </div>
+                <span asp-validation-for="EventID" class="text-danger"></span>
+            </div>
+
+            <!-- Venue Dropdown -->
+            <div class="form-group">
+                <label asp-for="VenueID" class="control-label"></label>
+                <div class="select-wrapper">
+                    <select asp-for="VenueID" class="form-control">
+                        <option value="">-- Select Venue --</option>
+                        @foreach (var venue in ViewBag.Venues)
+                        {
+                            <option value="@venue.VenueID">@venue.VenueName</option>
+                        }
+                    </select>
+                </div>
+                <span asp-validation-for="VenueID" class="text-danger"></span>
+            </div>
+
+            <!-- Booking Date -->
+            <div class="form-group">
+                <label asp-for="BookingDate" class="control-label"></label>
+                <input asp-for="BookingDate" class="form-control" />
+                <span asp-validation-for="BookingDate" class="text-danger"></span>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-group">
+                <input type="submit" value="Save Changes" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+
+    <a asp-action="Index" class="back-link">← Back to List</a>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

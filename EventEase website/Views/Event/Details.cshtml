@@ -1,0 +1,150 @@
+﻿@model EventEase_website.Models.EventM
+
+@{
+    ViewData["Title"] = "Event Details";
+}
+
+<style>
+    /* ── Page wrapper ── */
+    .details-page {
+        max-width: 960px;
+        margin: 2.5rem auto;
+        padding: 0 1rem;
+        font-family: Arial, sans-serif;
+    }
+
+        .details-page h1 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #4A3535;
+            margin-bottom: 0.25rem;
+        }
+
+        .details-page .page-subtitle {
+            font-size: 13px;
+            color: #7A6060;
+            margin-bottom: 1.5rem;
+        }
+
+        .details-page hr {
+            border: none;
+            border-top: 2px solid #C4A882;
+            margin-bottom: 1.8rem;
+        }
+
+    /* ── Details card ── */
+    .details-card {
+        background: #FFFDF8;
+        border: 1px solid #D4BFA8;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(107, 79, 79, 0.10);
+        padding: 2rem 2.5rem;
+        max-width: 580px;
+    }
+
+    /* ── Field rows ── */
+    .detail-row {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #EAE3D2;
+    }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+    .detail-label {
+        flex: 0 0 140px;
+        font-size: 13px;
+        font-weight: bold;
+        color: #4A3535;
+        letter-spacing: 0.2px;
+    }
+
+    .detail-value {
+        flex: 1;
+        font-size: 14px;
+        color: #2C2020;
+    }
+
+    /* ── Action links ── */
+    .details-actions {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1.4rem;
+        align-items: center;
+    }
+
+    .btn-edit {
+        display: inline-block;
+        background: #F0E8DC;
+        color: #6B4F4F;
+        border: 1px solid #C4A882;
+        border-radius: 8px;
+        padding: 0.55rem 1.4rem;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background 0.2s, color 0.2s;
+        letter-spacing: 0.3px;
+    }
+
+        .btn-edit:hover {
+            background: #6B4F4F;
+            color: #FFFDF8;
+        }
+
+    .back-link {
+        display: inline-block;
+        font-size: 13px;
+        color: #6B4F4F;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.2s;
+    }
+
+        .back-link:hover {
+            color: #4A3535;
+            text-decoration: underline;
+        }
+</style>
+
+<div class="details-page">
+
+    <h1>Event Details</h1>
+    <p class="page-subtitle">Viewing full information for this event.</p>
+    <hr />
+
+    <div class="details-card">
+
+        <div class="detail-row">
+            <span class="detail-label">@Html.DisplayNameFor(model => model.EventName)</span>
+            <span class="detail-value">@Html.DisplayFor(model => model.EventName)</span>
+        </div>
+
+        <div class="detail-row">
+            <span class="detail-label">@Html.DisplayNameFor(model => model.EventDate)</span>
+            <span class="detail-value">@Html.DisplayFor(model => model.EventDate)</span>
+        </div>
+
+        <div class="detail-row">
+            <span class="detail-label">@Html.DisplayNameFor(model => model.Description)</span>
+            <span class="detail-value">@Html.DisplayFor(model => model.Description)</span>
+        </div>
+
+        <div class="detail-row">
+            <span class="detail-label">@Html.DisplayNameFor(model => model.Venue)</span>
+            <span class="detail-value">@Html.DisplayFor(model => model.Venue.Location)</span>
+        </div>
+
+    </div>
+
+    <div class="details-actions">
+        <a asp-action="Edit" asp-route-id="@Model?.EventID" class="btn-edit">✎ Edit</a>
+        <a asp-action="Index" class="back-link">← Back to Events</a>
+    </div>
+
+</div>
