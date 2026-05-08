@@ -1,0 +1,257 @@
+﻿@model IEnumerable<EventEase_website.Models.BookingM>
+
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<style>
+    /* ── Page wrapper ── */
+    .booking-page {
+        max-width: 860px;
+        margin: 2.5rem auto;
+        padding: 0 1rem;
+        font-family: Arial, sans-serif;
+    }
+
+        .booking-page h1 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #4A3535;
+            margin-bottom: 0.25rem;
+        }
+
+        .booking-page .page-subtitle {
+            font-size: 13px;
+            color: #7A6060;
+            margin-bottom: 1.5rem;
+        }
+
+        .booking-page hr {
+            border: none;
+            border-top: 2px solid #C4A882;
+            margin-bottom: 1.8rem;
+        }
+
+    /* ── Top action bar ── */
+    .action-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.2rem;
+    }
+
+    .btn-create {
+        display: inline-block;
+        background: #6B4F4F;
+        color: #FFFDF8;
+        border: none;
+        border-radius: 8px;
+        padding: 0.55rem 1.4rem;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background 0.2s, transform 0.1s;
+        letter-spacing: 0.3px;
+    }
+
+        .btn-create:hover {
+            background: #4A3535;
+            color: #FFFDF8;
+        }
+
+        .btn-create:active {
+            transform: scale(0.98);
+        }
+
+    /* ── Table card ── */
+    .table-card {
+        background: #FFFDF8;
+        border: 1px solid #D4BFA8;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(107, 79, 79, 0.10);
+        overflow: hidden;
+    }
+
+    /* ── Table ── */
+    .booking-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+
+        .booking-table thead {
+            background: #6B4F4F;
+        }
+
+            .booking-table thead th {
+                color: #FFFDF8;
+                font-size: 13px;
+                font-weight: bold;
+                padding: 0.85rem 1.1rem;
+                text-align: left;
+                letter-spacing: 0.3px;
+            }
+
+        .booking-table tbody tr {
+            border-bottom: 1px solid #EAE3D2;
+            transition: background 0.15s;
+        }
+
+            .booking-table tbody tr:last-child {
+                border-bottom: none;
+            }
+
+            .booking-table tbody tr:hover {
+                background: #F5F0E8;
+            }
+
+        .booking-table tbody td {
+            padding: 0.8rem 1.1rem;
+            color: #2C2020;
+            vertical-align: middle;
+        }
+
+    /* ── Row action links ── */
+    .row-actions {
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+    }
+
+        .row-actions a {
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+            text-decoration: none;
+            padding: 0.3rem 0.75rem;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.2s, color 0.2s;
+        }
+
+    .link-edit {
+        background: #F0E8DC;
+        color: #6B4F4F;
+        border: 1px solid #C4A882;
+    }
+
+        .link-edit:hover {
+            background: #6B4F4F;
+            color: #FFFDF8;
+        }
+
+    .link-details {
+        background: #F0E8DC;
+        color: #6B4F4F;
+        border: 1px solid #C4A882;
+    }
+
+        .link-details:hover {
+            background: #6B4F4F;
+            color: #FFFDF8;
+        }
+
+    .link-delete {
+        background: #FAF0F0;
+        color: #8B2020;
+        border: 1px solid #E8C4C4;
+    }
+
+        .link-delete:hover {
+            background: #8B2020;
+            color: #FFFDF8;
+        }
+
+    /* ── Empty state ── */
+    .empty-state {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: #7A6060;
+        font-size: 14px;
+    }
+
+        .empty-state p {
+            margin-bottom: 1rem;
+        }
+</style>
+
+<div class="booking-page">
+
+    <h1>Bookings</h1>
+    @*POE PART 2*@
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <!-- Show Error Messages (ModelState Errors) -->
+    @if (!ViewData.ModelState.IsValid)
+    {
+        foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <div class="alert alert-danger">
+                @error.ErrorMessage
+            </div>
+        }
+    }
+
+    <p class="page-subtitle">A list of all current bookings.</p>
+    <hr />
+
+    <div class="action-bar">
+        <a asp-action="Create" class="btn-create">+ New Booking</a>
+    </div>
+
+    <div class="table-card">
+        <table class="booking-table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Event)</th>
+                    <th>@Html.DisplayNameFor(model => model.Venue)</th>
+                    <th>@Html.DisplayNameFor(model => model.BookingDate)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.Any())
+                {
+                    <tr>
+                        <td colspan="4">
+                            <div class="empty-state">
+                                <p>No bookings found.</p>
+                                <a asp-action="Create" class="btn-create">+ Create First Booking</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Event.EventName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Venue.Location)</td>
+                            <td>@Html.DisplayFor(modelItem => item.BookingDate)</td>
+                            <td>
+                                <div class="row-actions">
+                                    <a asp-action="Edit"
+                                       asp-route-id="@item.BookingID"
+                                       class="link-edit">✎ Edit</a>
+                                    <a asp-action="Details"
+                                       asp-route-id="@item.BookingID"
+                                       class="link-details">⊙ Details</a>
+                                    <a asp-action="Delete"
+                                       asp-route-id="@item.BookingID"
+                                       class="link-delete">✕ Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
