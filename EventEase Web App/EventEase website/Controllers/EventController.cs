@@ -33,6 +33,7 @@ namespace EventEase_website.Controllers
             {
                 _context.Add(@event);
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Event created successfully.";
                 return RedirectToAction(nameof(Index));
             }
 
@@ -61,6 +62,7 @@ namespace EventEase_website.Controllers
             {
                 _context.Update(@event);
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Event updated successfully.";
                 return RedirectToAction(nameof(Index));
             }
 
@@ -68,22 +70,38 @@ namespace EventEase_website.Controllers
             return View(@event);
         }
 
+        // POE PART 2: Confirm Deletion (GET)
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
 
+            var @event = await _context.Event
+                .Include(e => e.Venue)
+                .FirstOrDefaultAsync(e => e.EventID == id);
+
+            if (@event == null) return NotFound();
+
+            return View(@event);
+        }
+
+        // POE PART 2: Perform Deletion (POST) - Logic to restrict the deletion of events associated with active bookings.
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
             var @event = await _context.Event.FindAsync(id);
             if (@event == null) return NotFound();
 
             var isBooked = await _context.Booking.AnyAsync(b => b.EventID == id);
             if (isBooked)
             {
-                ModelState.AddModelError("", "Cannot delete event with existing bookings.");
-                return View("Index", await _context.Event.Include(e => e.Venue).ToListAsync());
+                TempData["ErrorMessage"] = "Cannot delete event because it has existing bookings.";
+                return RedirectToAction(nameof(Index));
             }
 
             _context.Event.Remove(@event);
             await _context.SaveChangesAsync();
+            TempData["SuccessMessage"] = "Event deleted successfully.";
             return RedirectToAction(nameof(Index));
         }
 

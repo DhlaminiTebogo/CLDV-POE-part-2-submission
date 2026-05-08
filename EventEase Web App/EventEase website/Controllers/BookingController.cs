@@ -13,14 +13,22 @@ namespace EventEase_website.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()    
+        // POE PART 2: Updated Index Action to add search functionality
+        public async Task<IActionResult> Index(string searchString)
         {
-            var bookings = await _context.Booking
+            var bookings = _context.Booking
                 .Include(b => b.Event)
                 .Include(b => b.Venue)
-                .ToListAsync();
+                .AsQueryable();
 
-            return View(bookings);
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                bookings = bookings.Where(b =>
+                    b.Venue.VenueName.Contains(searchString) ||
+                    b.Event.EventName.Contains(searchString));
+            }
+
+            return View(await bookings.ToListAsync());
         }
 
         public IActionResult Create()
@@ -44,7 +52,6 @@ namespace EventEase_website.Controllers
                 return View(booking);
             }
 
-            // Check manually for double booking
             var conflict = await _context.Booking
                 .Include(b => b.Event)
                 .AnyAsync(b => b.VenueID == booking.VenueID &&
@@ -69,7 +76,6 @@ namespace EventEase_website.Controllers
                 }
                 catch (DbUpdateException ex)
                 {
-                    // If database constraint fails (e.g., unique key violation), show friendly message
                     ModelState.AddModelError("", "This venue is already booked for that date.");
                     ViewData["Events"] = _context.Event.ToList();
                     ViewData["Venues"] = _context.Venue.ToList();
@@ -87,10 +93,7 @@ namespace EventEase_website.Controllers
             if (id == null) return NotFound();
 
             var booking = await _context.Booking.FindAsync(id);
-            if (booking == null)
-            {
-                return NotFound();
-            }
+            if (booking == null) return NotFound();
 
             ViewData["Events"] = _context.Booking.ToList();
             ViewData["Venues"] = _context.Venue.ToList();
@@ -102,10 +105,7 @@ namespace EventEase_website.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("BookingID, EventID,VenueID,BookingDate")] BookingM booking)
         {
-            if (id != booking.BookingID)
-            {
-                return NotFound();
-            }
+            if (id != booking.BookingID) return NotFound();
 
             if (ModelState.IsValid)
             {
@@ -117,13 +117,9 @@ namespace EventEase_website.Controllers
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!BookingExists(booking.BookingID))
-                    {
                         return NotFound();
-                    }
                     else
-                    {
                         throw;
-                    }
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -135,40 +131,28 @@ namespace EventEase_website.Controllers
 
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var booking = await _context.Booking
                 .Include(b => b.Event)
                 .Include(b => b.Venue)
                 .FirstOrDefaultAsync(m => m.BookingID == id);
 
-            if (booking == null)
-            {
-                return NotFound();
-            }
+            if (booking == null) return NotFound();
 
             return View(booking);
         }
 
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var booking = await _context.Booking
-                                .Include(b => b.Event)
-                                .Include(b => b.Venue)
-                                .FirstOrDefaultAsync(m => m.BookingID == id);
+                .Include(b => b.Event)
+                .Include(b => b.Venue)
+                .FirstOrDefaultAsync(m => m.BookingID == id);
 
-            if (booking == null)
-            {
-                return NotFound();
-            }
+            if (booking == null) return NotFound();
 
             return View(booking);
         }

@@ -178,6 +178,14 @@
 <div class="booking-page">
 
     <h1>Bookings</h1>
+
+    <form asp-action="Index" method="get">
+        <div class="form-group">
+            <input type="text" name="searchString" class="form-control" placeholder="Search Bookings..." value="@Context.Request.Query["searchString"]" />
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Search</button>
+    </form>
+
     @*POE PART 2*@
     @if (TempData["SuccessMessage"] != null)
     {
@@ -204,54 +212,37 @@
         <a asp-action="Create" class="btn-create">+ New Booking</a>
     </div>
 
-    <div class="table-card">
-        <table class="booking-table">
-            <thead>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <!-- Consolodated View To Display Bookings More Efficiently -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Event</th>
+                <th>Venue</th>
+                <th>Booking Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model)
+            {
                 <tr>
-                    <th>@Html.DisplayNameFor(model => model.Event)</th>
-                    <th>@Html.DisplayNameFor(model => model.Venue)</th>
-                    <th>@Html.DisplayNameFor(model => model.BookingDate)</th>
-                    <th></th>
+                    <td>@booking.BookingID</td>
+                    <td>@booking.Event?.EventName</td>
+                    <td>@booking.Venue?.VenueName</td>
+                    <td>@booking.BookingDate.ToString("yyyy-MM-dd")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@booking.BookingID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@booking.BookingID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@booking.BookingID">Delete</a>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @if (!Model.Any())
-                {
-                    <tr>
-                        <td colspan="4">
-                            <div class="empty-state">
-                                <p>No bookings found.</p>
-                                <a asp-action="Create" class="btn-create">+ Create First Booking</a>
-                            </div>
-                        </td>
-                    </tr>
-                }
-                else
-                {
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>@Html.DisplayFor(modelItem => item.Event.EventName)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Venue.Location)</td>
-                            <td>@Html.DisplayFor(modelItem => item.BookingDate)</td>
-                            <td>
-                                <div class="row-actions">
-                                    <a asp-action="Edit"
-                                       asp-route-id="@item.BookingID"
-                                       class="link-edit">✎ Edit</a>
-                                    <a asp-action="Details"
-                                       asp-route-id="@item.BookingID"
-                                       class="link-details">⊙ Details</a>
-                                    <a asp-action="Delete"
-                                       asp-route-id="@item.BookingID"
-                                       class="link-delete">✕ Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                    }
-                }
-            </tbody>
-        </table>
-    </div>
+            }
+        </tbody>
+    </table>
+    <!-- End of Update -->
 
 </div>

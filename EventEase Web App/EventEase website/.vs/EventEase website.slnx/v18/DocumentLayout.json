@@ -3,20 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|c:\\users\\tebog\\onedrive\\desktop\\cldv poe part 1 submission\\cldv-poe-part-1-submission\\eventease web app\\eventease website\\views\\venue\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|solutionrelative:views\\venue\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|c:\\users\\tebog\\onedrive\\desktop\\cldv poe part 1 submission\\cldv-poe-part-1-submission\\eventease web app\\eventease website\\views\\booking\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|solutionrelative:views\\booking\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|c:\\users\\tebog\\onedrive\\desktop\\cldv poe part 1 submission\\cldv-poe-part-1-submission\\eventease web app\\eventease website\\controllers\\venuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|solutionrelative:controllers\\venuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|c:\\users\\tebog\\onedrive\\desktop\\cldv poe part 1 submission\\cldv-poe-part-1-submission\\eventease web app\\eventease website\\views\\booking\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|solutionrelative:views\\booking\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|c:\\users\\tebog\\onedrive\\desktop\\cldv poe part 1 submission\\cldv-poe-part-1-submission\\eventease web app\\eventease website\\views\\booking\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|solutionrelative:views\\booking\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|c:\\users\\tebog\\onedrive\\desktop\\cldv poe part 1 submission\\cldv-poe-part-1-submission\\eventease web app\\eventease website\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|solutionrelative:controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|c:\\users\\tebog\\onedrive\\desktop\\cldv poe part 1 submission\\cldv-poe-part-1-submission\\eventease web app\\eventease website\\models\\bookingm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|solutionrelative:models\\bookingm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|c:\\users\\tebog\\onedrive\\desktop\\cldv poe part 1 submission\\cldv-poe-part-1-submission\\eventease web app\\eventease website\\views\\event\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|solutionrelative:views\\event\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|c:\\users\\tebog\\onedrive\\desktop\\cldv poe part 1 submission\\cldv-poe-part-1-submission\\eventease web app\\eventease website\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|solutionrelative:controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|c:\\users\\tebog\\onedrive\\desktop\\cldv poe part 1 submission\\cldv-poe-part-1-submission\\eventease web app\\eventease website\\views\\venue\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|solutionrelative:views\\venue\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|c:\\users\\tebog\\onedrive\\desktop\\cldv poe part 1 submission\\cldv-poe-part-1-submission\\eventease web app\\eventease website\\controllers\\venuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E1FC91C-F986-958B-F7FF-4BD504152F80}|EventEase website.csproj|solutionrelative:controllers\\venuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 22,
+          "SelectedChildIndex": 28,
           "Children": [
             {
               "$type": "Bookmark",
@@ -118,7 +138,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
+              "Title": "BookingM.cs",
+              "DocumentMoniker": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\Models\\BookingM.cs",
+              "RelativeDocumentMoniker": "Models\\BookingM.cs",
+              "ToolTip": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\Models\\BookingM.cs",
+              "RelativeToolTip": "Models\\BookingM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T08:51:26.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\Views\\Booking\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Booking\\Details.cshtml",
+              "ToolTip": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\Views\\Booking\\Details.cshtml",
+              "RelativeToolTip": "Views\\Booking\\Details.cshtml",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAqwIoAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-08T08:43:26.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\Views\\Booking\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\Booking\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\Views\\Booking\\Delete.cshtml",
+              "RelativeToolTip": "Views\\Booking\\Delete.cshtml",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAqwJAAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-08T08:42:52.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\Views\\Event\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Event\\Index.cshtml",
+              "ToolTip": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\Views\\Event\\Index.cshtml",
+              "RelativeToolTip": "Views\\Event\\Index.cshtml",
+              "ViewState": "AgIAAK4AAAAAAAAAAADwv8AAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-08T08:28:44.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EventController.cs",
+              "DocumentMoniker": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\Controllers\\EventController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EventController.cs",
+              "ToolTip": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\Controllers\\EventController.cs",
+              "RelativeToolTip": "Controllers\\EventController.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAAwEgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T08:24:24.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\Views\\Venue\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Venue\\Index.cshtml",
@@ -131,13 +216,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\Views\\Booking\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Booking\\Index.cshtml",
               "ToolTip": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\Views\\Booking\\Index.cshtml",
               "RelativeToolTip": "Views\\Booking\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAOIAAAAAAAAAAAAqwOgAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-05-08T08:09:34.037Z",
               "EditorCaption": ""
@@ -150,14 +235,14 @@
               "RelativeDocumentMoniker": "Controllers\\BookingController.cs",
               "ToolTip": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\Controllers\\BookingController.cs",
               "RelativeToolTip": "Controllers\\BookingController.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAADwvyIAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAnwJYAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-08T08:08:23.714Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "VenueController.cs",
               "DocumentMoniker": "C:\\Users\\tebog\\OneDrive\\Desktop\\CLDV poe part 1 submission\\CLDV-Poe-Part-1-submission\\EventEase Web App\\EventEase website\\Controllers\\VenueController.cs",
               "RelativeDocumentMoniker": "Controllers\\VenueController.cs",
@@ -165,8 +250,7 @@
               "RelativeToolTip": "Controllers\\VenueController.cs",
               "ViewState": "AgIAAG0AAAAAAAAAAADwv2sAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-07T15:48:48.001Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-07T15:48:48.001Z"
             }
           ]
         }
